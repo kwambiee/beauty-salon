@@ -6,13 +6,15 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'cdn.usegalileo.ai',
-        port: '',
-        pathname: '/sdxl10/**',
-        search: '',
+        protocol: "https",
+        hostname: "cdn.usegalileo.ai",
+        port: "",
+        pathname: "/sdxl10/**",
+        search: "",
       },
     ],
+
+    domains: ["preview.lsvr.sk"],
   },
 };
 

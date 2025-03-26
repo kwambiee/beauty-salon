@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Epilogue } from "next/font/google";
 import "./globals.css";
-import { Footer } from "react-day-picker";
+import Footer from "@/components/ui/footer";
 import NavBar from "@/components/ui/navbar";
 
 const geistSans = Geist({
@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const epilogue = Epilogue({
-  weight: ["400","700"],
+  weight: ["400", "700"],
   variable: "--font-epilogue",
   subsets: ["latin"],
 });
@@ -32,12 +32,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${epilogue.variable} antialiased `}>
-        <div className="relative flex size-full min-h-screen flex-col bg-[#edd4da] p-10 group/design-root overflow-x-hidden">
-          <div className="layout-container flex h-full grow flex-col">
+      <body className={`${epilogue.variable} antialiased`}>
+        <div className="flex flex-col min-h-screen">
+          <header className="sticky top-0 z-50">
             <NavBar />
-            <main className="">{children}</main>
-          </div>
+          </header>
+          <main className="overflow-y-auto h-2/5">{children}</main>
+          {/* <Footer /> */}
         </div>
       </body>
     </html>
