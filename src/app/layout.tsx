@@ -38,8 +38,8 @@ export default function RootLayout({
             <NavBar />
           </aside>
           <div className="w-3/4 h-full">
-            <main className="h-3/4">{children}</main>
-            <div className="h-1/4">
+            <main className="h-full">{children}</main>
+            <div className="">
               <Footer />
             </div>
           </div>

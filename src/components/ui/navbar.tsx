@@ -28,7 +28,7 @@ const NavBar = () => {
   const [language, setLanguage] = useState("en");
   const [search, setSearch] = useState(false);
   return (
-    <nav className="bg-homeBg bg-cover bg-center-center bg-no-repeat z-20 bg-[#099db3] h-screen sticky inset-0">
+    <nav className="bg-homeBg bg-cover bg-center-center bg-no-repeat z-20 bg-[#099db3] h-screen fixed left-0">
       <div className="pt-[60px] relative box-border h-full w-full z-30">
         {/* <---- Tools ----> */}
         <section className="flex items-center absolute right-[30px] top-[15px] z-20 space-x-2">

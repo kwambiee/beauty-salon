@@ -75,7 +75,7 @@ export default function ServicePage({
   const [serviceID, setServiceID] = useState<string | null>(null);
   const [selectedService, setSelectedService] = useState<Service | null>(null);
 
-   console.log(serviceID);
+  console.log(serviceID);
 
   useEffect(() => {
     params.then((resolvedParams) => {
@@ -93,7 +93,7 @@ export default function ServicePage({
   };
 
   return (
-    <div className="h-full bg-gray-100 py-10">
+    <div className="h-[75%] bg-gray-100 py-10">
       <div className="flex p-8  w-full">
         <aside className="w-1/4 pr-6">
           <h2 className="text-xl font-bold mb-4">SERVICES</h2>
