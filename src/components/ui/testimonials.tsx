@@ -21,7 +21,7 @@ const testimonials = [
       "https://preview.lsvr.sk/beautyspot/wp-content/uploads/sites/6/2019/05/client_02.jpg",
     testimonial:
       "A hidden gem! The team is so skilled, and the salon is super clean and welcoming.",
-  }
+  },
 ];
 
 const Testimonials = () => {
@@ -29,7 +29,9 @@ const Testimonials = () => {
     <section className="bg-[#f5f5f5] py-16">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold">Our Clients' Testimonials</h2>
+          <h2 className="text-3xl font-bold">
+            Our Clients &apos; Testimonials
+          </h2>
           <p className="text-gray-400 mt-2">
             What our customers are saying about us
           </p>
@@ -48,7 +50,7 @@ const Testimonials = () => {
                 className="rounded-full mb-4"
               />
               <p className="text-gray-500 italic">
-                "{testimonial.testimonial}"
+                &quot;{testimonial.testimonial}&quot;
               </p>
               <h4 className="text-lg font-semibold mt-4">{testimonial.name}</h4>
             </div>

@@ -23,7 +23,7 @@ import MenuItems from "@/components/ui/menuitems";
 import { Search } from "lucide-react";
 import Link from "next/link";
 
-const navBar = () => {
+const NavBar = () => {
   const [open, setOpen] = useState(false);
   const [language, setLanguage] = useState("en");
   const [search, setSearch] = useState(false);
@@ -145,4 +145,4 @@ const navBar = () => {
   );
 };
 
-export default navBar;
+export default NavBar;

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Epilogue } from "next/font/google";
+import { Epilogue } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/ui/footer";
 import NavBar from "@/components/ui/navbar";
@@ -33,13 +33,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${epilogue.variable} antialiased`}>
-        <div className="flex relative ">
+        <div className="flex relative min-h-screen h-full ">
           <aside className="w-1/4">
             <NavBar />
           </aside>
-          <div className="w-3/4">
-            <main>{children}</main>
-            <Footer />
+          <div className="w-3/4 h-full">
+            <main className="h-3/4">{children}</main>
+            <div className="h-1/4">
+              <Footer />
+            </div>
           </div>
         </div>
       </body>

@@ -1,8 +1,8 @@
 const Footer = () => {
-  let currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
   return (
-    <div className="w-full">
-      <footer className="bg-gray-900 text-white py-10 mt-8">
+    <div className=" w-full h-full">
+      <footer className="bg-gray-900 text-white py-5 mt-8">
         <div className="container mx-auto px-6 lg:px-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* About Section */}

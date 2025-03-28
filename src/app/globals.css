@@ -3,11 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --font-epilogue: 'Epilogue', sans-serif;
+  --font-epilogue: "Epilogue", sans-serif;
+}
+html {
+  height: 100%;
 }
 
 body {
   font-family: var(--font-epilogue);
+  height: 100%;
 }
 
 @layer base {

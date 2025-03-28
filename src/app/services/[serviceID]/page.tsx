@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Footer from "@/components/ui/footer";
 
 type Service = {
   id: number;
@@ -75,6 +74,8 @@ export default function ServicePage({
   const router = useRouter();
   const [serviceID, setServiceID] = useState<string | null>(null);
   const [selectedService, setSelectedService] = useState<Service | null>(null);
+
+   console.log(serviceID);
 
   useEffect(() => {
     params.then((resolvedParams) => {
