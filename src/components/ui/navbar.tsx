@@ -21,6 +21,7 @@ import { contactInfo } from "@/data/data";
 import Socials from "@/components/ui/social";
 import MenuItems from "@/components/ui/menuitems";
 import { Search } from "lucide-react";
+import Link from "next/link";
 
 const navBar = () => {
   const [open, setOpen] = useState(false);
@@ -102,9 +103,11 @@ const navBar = () => {
         <div className="text-white bg-white/8  mt-12 text-sm z-30">
           {/* <---- Appointment ----> */}
           <div className="w-1/2 mx-auto pt-[30px]">
-            <Button className="p-4 bg-[#edcf56] rounded-full font-semibold uppercase text-[#333] tracking-wide hover:bg-yellow-600 hover:shadow-lg">
-              Make An Appointment
-            </Button>
+            <Link href="/contact">
+              <Button className="p-4 bg-[#edcf56] rounded-full font-semibold uppercase text-[#333] tracking-wide hover:bg-yellow-600 hover:shadow-lg">
+                Make An Appointment
+              </Button>
+            </Link>
           </div>
 
           {/* <---- Contact ----> */}
