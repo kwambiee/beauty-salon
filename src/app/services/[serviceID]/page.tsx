@@ -1,88 +1,154 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-const ServiceDetail = () => {
-  return (
-    <div className="container mx-auto p-6">
-      {/* Breadcrumbs */}
-      <nav className="text-sm mb-4">
-        <ul className="flex space-x-2 text-gray-500">
-          <li>
-            <Link href="/" className="hover:text-gray-700">
-              Home
-            </Link>
-          </li>
-          <li>/</li>
-          <li>
-            <Link href="/services" className="hover:text-gray-700">
-              Our Services
-            </Link>
-          </li>
-        </ul>
-      </nav>
-
-      {/* Page Header */}
-      <h1 className="text-3xl font-bold text-gray-800 mb-4">Cosmetics</h1>
-
-      {/* Service Description */}
-      <p className="text-gray-600 mb-6">
-        Cosmetics are substances or products used to enhance or alter the
-        appearance of the face or fragrance and texture of the body. Many
-        cosmetics are designed for application to the face, hair, and body.
-      </p>
-
-      {/* Service Pricing Table */}
-      <div className="overflow-x-auto mb-8">
-        <table className="w-full border-collapse border border-gray-300">
-          <thead>
-            <tr className="bg-gray-100">
-              <th className="border p-2">Service</th>
-              <th className="border p-2">Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[
-              { service: "Wash", price: "$10.50" },
-              { service: "Cut and Finish", price: "$19.99" },
-              { service: "Blow Dries", price: "$14.00" },
-              { service: "Hair Colouring", price: "$12.50" },
-              { service: "Evening Hairdressing", price: "$18.99" },
-            ].map((item, index) => (
-              <tr
-                key={index}
-                className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
-              >
-                <td className="border p-2">{item.service}</td>
-                <td className="border p-2">{item.price}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {/* Gallery */}
-      <h3 className="text-2xl font-semibold mb-4">Gallery</h3>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {[
-          "/gallery_01.jpg",
-          "/gallery_08.jpg",
-          "/gallery_02.jpg",
-          "/gallery_03.jpg",
-          "/gallery_06.jpg",
-        ].map((src, index) => (
-          <div key={index} className="w-full h-48 relative">
-            <Image
-              src={src}
-              alt="Gallery image"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg shadow-md"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+type Service = {
+  id: number;
+  name: string;
+  description: string;
+  prices: { service: string; price: string }[];
 };
 
-export default ServiceDetail;
+const services: Service[] = [
+  {
+    id: 1,
+    name: "Cosmetics",
+    description:
+      "Cosmetics are substances or products used to enhance or alter the appearance...",
+    prices: [
+      { service: "Wash", price: "$10.50" },
+      { service: "Cut and Finish", price: "$19.99" },
+      { service: "Blow Dries", price: "$14" },
+      { service: "Hair Colouring", price: "$12.50" },
+      { service: "Evening Hairdressing", price: "$18.99" },
+    ],
+  },
+  {
+    id: 2,
+    name: "Hairdressing",
+    description:
+      "Hairdressing services include cutting, styling, and treating hair...",
+    prices: [],
+  },
+  {
+    id: 3,
+    name: "Barber",
+    description:
+      "Barber services include haircuts, shaves, and grooming for men...",
+    prices: [],
+  },
+  {
+    id: 4,
+    name: "Massages",
+    description:
+      "Massage services for relaxation, therapeutic benefits, and stress relief...",
+    prices: [],
+  },
+  {
+    id: 5,
+    name: "Body Treatments",
+    description: "Body treatments include skin care, exfoliation, and more...",
+    prices: [],
+  },
+  {
+    id: 6,
+    name: "Aromatherapy",
+    description:
+      "Aromatherapy involves the use of essential oils for relaxation and health benefits...",
+    prices: [],
+  },
+];
+
+const images = [
+  "/nails/nails_1.jpg",
+  "/nails/nails_2.jpg",
+  "/nails/nails_3.jpg",
+  "/nails/nails_5.jpg",
+];
+
+export default function ServicePage({
+  params,
+}: {
+  params: Promise<{ serviceID: string }>;
+}) {
+  const router = useRouter();
+  const [serviceID, setServiceID] = useState<string | null>(null);
+  const [selectedService, setSelectedService] = useState<Service | null>(null);
+
+  useEffect(() => {
+    params.then((resolvedParams) => {
+      setServiceID(resolvedParams.serviceID);
+      const service = services.find(
+        (s) => s.id === Number(resolvedParams.serviceID)
+      );
+      setSelectedService(service || services[0]); 
+    });
+  }, [params]);
+
+  const handleSelectedService = (service: Service) => {
+    setSelectedService(service);
+    router.push(`/services/${service.id}`); // Update URL
+  };
+
+  return (
+    <div className="absolute right-0 h-full flex p-8 w-[70%]">
+      <aside className="w-1/4 pr-6">
+        <h2 className="text-xl font-bold mb-4">SERVICES</h2>
+        <ul>
+          {services.map((service) => (
+            <li
+              key={service.id}
+              className={`cursor-pointer py-2 px-4 mb-2 rounded ${
+                selectedService?.id === service.id
+                  ? "bg-pink-500 text-white"
+                  : "bg-gray-200"
+              }`}
+              onClick={() => handleSelectedService(service)}
+            >
+              {service.name}
+            </li>
+          ))}
+        </ul>
+      </aside>
+      <main className="w-3/4">
+        {selectedService ? (
+          <>
+            <h1 className="text-3xl font-bold mb-4">{selectedService.name}</h1>
+            <p className="mb-6">{selectedService.description}</p>
+            {selectedService.prices.length > 0 && (
+              <table className="w-full border-collapse border border-gray-300 mb-6">
+                <thead>
+                  <tr className="bg-gray-300">
+                    <th className="p-2">SERVICE</th>
+                    <th className="p-2">PRICE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {selectedService.prices.map((item, idx) => (
+                    <tr key={idx} className="border-t border-gray-300">
+                      <td className="p-2">{item.service}</td>
+                      <td className="p-2">{item.price}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </>
+        ) : (
+          <p>Loading service details...</p>
+        )}
+        <h2 className="text-2xl font-bold mb-4">Gallery</h2>
+        <div className="grid grid-cols-3 gap-4">
+          {images.map((src, index) => (
+            <img
+              key={index}
+              src={src}
+              alt="Gallery"
+              className="w-full h-32 object-cover rounded"
+            />
+          ))}
+        </div>
+      </main>
+    </div>
+  );
+}

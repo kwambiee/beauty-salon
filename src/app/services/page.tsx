@@ -1,38 +1,25 @@
 import Footer from "@/components/ui/footer";
 import Image from "next/image";
+import Link from "next/link";
 
 const services = [
   {
-    title: "Nail Salon – Stunning Nails, Every Time!",
+    id: 1,
+    title: "Nail Salon",
     description:
-      "Whether you love simple elegance or bold, trendy designs, our nail experts will make your nails look flawless. From classic polishes to gel extensions, we offer high-quality nail artistry that lasts!",
+      "Explore our collection of trendy, elegant, and timeless nail designs that will make your nails stand out and look effortlessly beautiful.",
     imageUrl:
       "https://preview.lsvr.sk/beautyspot/wp-content/uploads/sites/6/2019/05/service_01.jpg",
-    link: "https://preview.lsvr.sk/beautyspot/services/cosmetics/",
+    // link: "https://preview.lsvr.sk/beautyspot/services/cosmetics/",
   },
   {
-    title: "Manicure & Pedicure – Treat Your Hands & Feet!",
+    id: 2,
+    title: "Manicure & Pedicure",
     description:
       "Give your hands and feet the care they deserve. Our manicures and pedicures include deep cleansing, exfoliation, cuticle care, and hydrating treatments, leaving you refreshed and polished.",
     imageUrl:
       "https://preview.lsvr.sk/beautyspot/wp-content/uploads/sites/6/2019/05/service_02.jpg",
-    link: "https://preview.lsvr.sk/beautyspot/services/hairdressing/",
-  },
-  {
-    title: "Barber Services – Sharp Cuts for the Modern Gentleman!",
-    description:
-      "Stay sharp and stylish with our precision barbering services. We provide clean fades, trims, and shaves, ensuring you leave looking fresh and confident.",
-    imageUrl:
-      "https://preview.lsvr.sk/beautyspot/wp-content/uploads/sites/6/2019/05/service_03.jpg",
-    link: "https://preview.lsvr.sk/beautyspot/services/barber/",
-  },
-  {
-    title: "Massages & Body Treatments (Coming Soon!)",
-    description:
-      "Relax, de-stress, and treat yourself to a soothing massage. Our body treatments will soon be available to help you feel rejuvenated from head to toe. Stay tuned!",
-    imageUrl:
-      "https://preview.lsvr.sk/beautyspot/wp-content/uploads/sites/6/2019/05/service_03.jpg",
-    link: "https://preview.lsvr.sk/beautyspot/services/barber/",
+    // link: "https://preview.lsvr.sk/beautyspot/services/hairdressing/",
   },
 ];
 
@@ -45,7 +32,7 @@ export default function ServicesPage() {
         </header>
 
         <div className="px-4">
-          <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10">
+          <div className=" grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -63,12 +50,12 @@ export default function ServicesPage() {
                     {service.title}
                   </h2>
                   <p className="text-gray-600 mt-2">{service.description}</p>
-                  <a
-                    href={service.link}
+                  <Link
+                    href={`/services/${service.id}`}
                     className="block mt-4 text-[#ff007c] shadow hover:shadow-lg font-medium"
                   >
                     More Info →
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}
