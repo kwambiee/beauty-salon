@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Footer from "@/components/ui/footer";
 
 type Service = {
   id: number;
@@ -81,7 +82,7 @@ export default function ServicePage({
       const service = services.find(
         (s) => s.id === Number(resolvedParams.serviceID)
       );
-      setSelectedService(service || services[0]); 
+      setSelectedService(service || services[0]);
     });
   }, [params]);
 
@@ -91,64 +92,68 @@ export default function ServicePage({
   };
 
   return (
-    <div className="absolute right-0 h-full flex p-8 w-[70%]">
-      <aside className="w-1/4 pr-6">
-        <h2 className="text-xl font-bold mb-4">SERVICES</h2>
-        <ul>
-          {services.map((service) => (
-            <li
-              key={service.id}
-              className={`cursor-pointer py-2 px-4 mb-2 rounded ${
-                selectedService?.id === service.id
-                  ? "bg-pink-500 text-white"
-                  : "bg-gray-200"
-              }`}
-              onClick={() => handleSelectedService(service)}
-            >
-              {service.name}
-            </li>
-          ))}
-        </ul>
-      </aside>
-      <main className="w-3/4">
-        {selectedService ? (
-          <>
-            <h1 className="text-3xl font-bold mb-4">{selectedService.name}</h1>
-            <p className="mb-6">{selectedService.description}</p>
-            {selectedService.prices.length > 0 && (
-              <table className="w-full border-collapse border border-gray-300 mb-6">
-                <thead>
-                  <tr className="bg-gray-300">
-                    <th className="p-2">SERVICE</th>
-                    <th className="p-2">PRICE</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {selectedService.prices.map((item, idx) => (
-                    <tr key={idx} className="border-t border-gray-300">
-                      <td className="p-2">{item.service}</td>
-                      <td className="p-2">{item.price}</td>
+    <div className="h-full bg-gray-100 py-10">
+      <div className="flex p-8  w-full">
+        <aside className="w-1/4 pr-6">
+          <h2 className="text-xl font-bold mb-4">SERVICES</h2>
+          <ul>
+            {services.map((service) => (
+              <li
+                key={service.id}
+                className={`cursor-pointer py-2 px-4 mb-2 rounded ${
+                  selectedService?.id === service.id
+                    ? "bg-pink-500 text-white"
+                    : "bg-gray-200"
+                }`}
+                onClick={() => handleSelectedService(service)}
+              >
+                {service.name}
+              </li>
+            ))}
+          </ul>
+        </aside>
+        <main className="w-3/4">
+          {selectedService ? (
+            <>
+              <h1 className="text-3xl font-bold mb-4">
+                {selectedService.name}
+              </h1>
+              <p className="mb-6">{selectedService.description}</p>
+              {selectedService.prices.length > 0 && (
+                <table className="w-full border-collapse border border-gray-300 mb-6">
+                  <thead>
+                    <tr className="bg-gray-300">
+                      <th className="p-2">SERVICE</th>
+                      <th className="p-2">PRICE</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            )}
-          </>
-        ) : (
-          <p>Loading service details...</p>
-        )}
-        <h2 className="text-2xl font-bold mb-4">Gallery</h2>
-        <div className="grid grid-cols-3 gap-4">
-          {images.map((src, index) => (
-            <img
-              key={index}
-              src={src}
-              alt="Gallery"
-              className="w-full h-32 object-cover rounded"
-            />
-          ))}
-        </div>
-      </main>
+                  </thead>
+                  <tbody>
+                    {selectedService.prices.map((item, idx) => (
+                      <tr key={idx} className="border-t border-gray-300">
+                        <td className="p-2">{item.service}</td>
+                        <td className="p-2">{item.price}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </>
+          ) : (
+            <p>Loading service details...</p>
+          )}
+          <h2 className="text-2xl font-bold mb-4">Gallery</h2>
+          <div className="grid grid-cols-3 gap-4">
+            {images.map((src, index) => (
+              <img
+                key={index}
+                src={src}
+                alt="Gallery"
+                className="w-full h-32 object-cover rounded"
+              />
+            ))}
+          </div>
+        </main>
+      </div>
     </div>
   );
 }

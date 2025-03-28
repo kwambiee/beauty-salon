@@ -57,8 +57,10 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       backgroundImage: {
-        "homeBg": 'url("/sidebar_bg.jpg")',
-        "salonLogo": 'url("/salon_logo.png")',
+        homeBg: 'url("/sidebar_bg.jpg")',
+        // "salonLogo": 'url("/salon_logo.png")',
+        salonLogo:
+          'url("https://preview.lsvr.sk/beautyspot/wp-content/uploads/sites/6/2019/05/beautyspot-logo.png")',
         "custom-gradient":
           "linear-gradient(to bottom, rgba(255, 0, 124, 0.9), #099db3)",
       },

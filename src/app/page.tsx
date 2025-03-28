@@ -9,17 +9,13 @@ const Home = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className=" w-full ">
-      <div className=" absolute right-0 w-[70%] bg-[#fff] h-full">
-        {/* slide section */}
-        <HeroSlider />
-        {/* Our Services */}
-        <Services />
-        {/* client Testimonials */}
-        <Testimonials />
-
-        <Footer />
-      </div>
+    <div className="bg-[#fff] h-full w-full">
+      {/* slide section */}
+      <HeroSlider />
+      {/* Our Services */}
+      <Services />
+      {/* client Testimonials */}
+      <Testimonials />
     </div>
   );
 };

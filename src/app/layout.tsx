@@ -33,12 +33,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${epilogue.variable} antialiased`}>
-        <div className="flex flex-col min-h-screen">
-          <header className="sticky top-0 z-50">
+        <div className="flex relative ">
+          <aside className="w-1/4">
             <NavBar />
-          </header>
-          <main className="overflow-y-auto h-2/5">{children}</main>
-          {/* <Footer /> */}
+          </aside>
+          <div className="w-3/4">
+            <main>{children}</main>
+            <Footer />
+          </div>
         </div>
       </body>
     </html>
