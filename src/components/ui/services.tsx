@@ -16,7 +16,7 @@ const services: Service[] = [
       "Whether you love simple elegance or bold, trendy designs, our nail experts will make your nails look flawless.",
     image:
       "https://preview.lsvr.sk/beautyspot/wp-content/uploads/sites/6/2019/05/service_01-700x464.jpg",
-    link: "https://preview.lsvr.sk/beautyspot/services/cosmetics/",
+    link: "",
     icon: "💄",
   },
   {
@@ -25,7 +25,7 @@ const services: Service[] = [
       "Our manicures and pedicures include deep cleansing, exfoliation, cuticle care, and hydrating treatments, leaving you refreshed and polished.",
     image:
       "https://preview.lsvr.sk/beautyspot/wp-content/uploads/sites/6/2019/05/service_02-700x464.jpg",
-    link: "https://preview.lsvr.sk/beautyspot/services/hairdressing/",
+    link: "",
     icon: "💇‍♀️",
   },
   {
@@ -34,7 +34,7 @@ const services: Service[] = [
       "We provide clean fades, trims, and shaves, ensuring you leave looking fresh and confident.",
     image:
       "https://preview.lsvr.sk/beautyspot/wp-content/uploads/sites/6/2019/05/service_03-700x464.jpg",
-    link: "https://preview.lsvr.sk/beautyspot/services/barber/",
+    link: "",
     icon: "✂️",
   },
   {
@@ -43,7 +43,7 @@ const services: Service[] = [
       " Our body treatments will soon be available to help you feel rejuvenated from head to toe. Stay tuned!",
     image:
       "https://preview.lsvr.sk/beautyspot/wp-content/uploads/sites/6/2019/05/service_04-700x464.jpg",
-    link: "https://preview.lsvr.sk/beautyspot/services/massages/",
+    link: "",
     icon: "💆‍♀️",
   },
   // {
@@ -96,9 +96,7 @@ const Services: React.FC = () => {
               {/* Content */}
               <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white px-6 py-4">
                 {/* Icon */}
-                <div className="text-5xl mt-4">
-                  {service.icon}
-                </div>
+                <div className="text-5xl mt-4">{service.icon}</div>
 
                 {/* Title */}
                 <h3 className="text-2xl font-bold mb-2">{service.title}</h3>

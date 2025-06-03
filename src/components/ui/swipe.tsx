@@ -20,7 +20,7 @@ const slides = [
     buttonText: "See Our Designs",
     image:
       "https://preview.lsvr.sk/beautyspot/wp-content/uploads/sites/6/2019/05/slide_02.jpg",
-    link: "https://preview.lsvr.sk/beautyspot/blog/",
+    link: "",
   },
   {
     title: " Find Us at Toi Market",
@@ -28,7 +28,7 @@ const slides = [
     buttonText: "See where we are",
     image:
       "https://preview.lsvr.sk/beautyspot/wp-content/uploads/sites/6/2019/05/slide_03.jpg",
-    link: "https://preview.lsvr.sk/beautyspot/testimonials/",
+    link: "",
   },
 ];
 
