@@ -3,7 +3,6 @@ import React from "react";
 import HeroSlider from "@/components/ui/swipe";
 import Services from "@/components/ui/services";
 import Testimonials from "@/components/ui/testimonials";
-import NavBar from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
 
 const Home = () => {

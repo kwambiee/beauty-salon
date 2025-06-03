@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Epilogue } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/ui/footer";
 import NavBar from "@/components/ui/navbar";
 
 // const geistSans = Geist({
