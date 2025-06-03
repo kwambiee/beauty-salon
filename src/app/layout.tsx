@@ -40,7 +40,7 @@ export default function RootLayout({
           <div className="w-3/4 h-full">
             <main className="h-full">{children}</main>
             <div className="">
-              <Footer />
+              {/* <Footer /> */}
             </div>
           </div>
         </div>
